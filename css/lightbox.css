@@ -1,0 +1,160 @@
+/* LIGHTBOX */
+#lightbox-container
+{
+   
+    position: fixed;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background: #ffffff;
+    border-radius: 5px;
+  
+}
+
+#lightbox-container img {
+   
+  
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 10%;
+    bottom: 0%;
+    max-height: 80%;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#lightbox-container video {
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 10%;
+    bottom: 0%;
+    max-height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+ 
+
+
+ .title-lightbox
+{
+    
+    font-size: 24px;
+    color: #901C1C;
+    font-weight: 400;
+
+}
+
+/* autre méthode */
+
+#gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 15%;
+    background-color: beige;
+    border-radius: 15px;
+}
+
+.card .picture img {
+    width: 100%;
+}
+
+#lightbox {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #808080;
+    top: 0px;
+    left: 0px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox.show {
+    display: flex;
+}
+
+#lightbox .content {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+}
+
+#lightbox #content .picture {
+    width: 100%;
+    position: relative;
+}
+
+
+#lightbox-container .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: auto;
+  right: 15%;
+  color: #901C1C;
+  font-weight: bold;
+  font-size: 70px;
+  /* transition: 0.6s ease; */
+  border-radius: 0 3px 3px 0;
+  /* user-select: none;
+  -webkit-user-select: none; */
+}
+
+#lightbox-container .previous {
+
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: auto;
+    left: 15%;
+    color: #901C1C;
+    font-weight: bold;
+    font-size: 70px;
+    /* user-select: none;
+    -webkit-user-select: none; */
+
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.previous:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+ #lightbox-container .close {
+    cursor: pointer;
+    color: red;
+    position: absolute;
+    top: 7%;
+    left: auto;
+    right: 15%;
+    font-size: 70px;
+ }
+  
+.close:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+ }
+ 
+ a {
+    color: red;
+    text-decoration: none;
+ }
