@@ -120,7 +120,7 @@ async function displayDataOnePhotographer(onePhotographer)
 async function displayMediaOnePhotographer(photographers, unPhotographer)
 {
     const photographersSection = document.querySelector(".media_section");
-		photographersSection.innerHTML = "";
+	photographersSection.innerHTML = "";
     // console.log("console du display data ");
     // console.log(photographers);
     

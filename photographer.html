@@ -22,28 +22,24 @@
         <!-- <button class="contact_button" onclick; >Contactez-moi</button> -->
       </div>
     
-      
-      <!-- Input label  -->
-      <form>
-        <label>
-          Trier par
-          <input type="date" name="bday" required pattern="\d{4}-\d{2}-\d{2}" />
-          <span class="validity"></span>
-        </label>
-      </form>
-      
+          
 
-       <!-- Partie Filtres -->
-      <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">trier</button>
+       <!-- Partie Tri -->
+        <!-- Input label  -->
+    
+     <div class="label">
+       <h2>Trier par</h2>
+      </div>
+       <div class="dropdown">
+           <button onclick="myFunction()" class="dropbtn"> trier par </button>
         <div id="myDropdown" class="dropdown-content">
           <a href="javascript:triLikes()">Popularité</a>
           <a href="javascript:triDate()">Date</a>
           <a href="javascript:triTitre()">Titre</a>
         </div>
       </div>
-      <div class="media_section">
 
+      <div class="media_section">
       </div>
    
     <div class="likes-wrapper">

@@ -12,7 +12,7 @@
   
 }
 
-#lightbox-container img {
+#content img {
    
   
     position: absolute;
@@ -26,28 +26,30 @@
     margin-right: auto;
 }
 
-#lightbox-container video {
+#content video {
 
     position: absolute;
     left: 0%;
     right: 0%;
     top: 10%;
     bottom: 0%;
-    max-height: 70%;
+    max-height: 80%;
     margin-left: auto;
     margin-right: auto;
 }
  
 
 
- .title-lightbox
+ #content .title-lightbox
 {
     
+    margin: 45% 0% 0% 30%; 
     font-size: 24px;
     color: #901C1C;
     font-weight: 400;
 
 }
+
 
 /* autre méthode */
 

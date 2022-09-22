@@ -13,6 +13,6 @@
         // .then(jsondata => console.log(jsondata))
         let obj = JSON.parse(datas);
         // console.log(datas+ "longuer  " + datas.length+ " name " + obj.city);
-            console.log("DATA "+ obj);
+            // console.log("DATA "+ obj);
          return obj;
 }

@@ -71,17 +71,24 @@ h1 {
 }
 
   /* Partie Filtres */
+
+
+.label {
+    float: left;
+    margin: 0 30px 0 30px;
+    color: #000000;
+}
 /* Bouton du dropdown */
 .dropbtn {
+    float: right;
+    margin: 15px 0 0 0;
     background-color: #901C1C;
     color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
-
-    
-    background: #911C1C;
+ 
     border-radius: 5px;
   }
   

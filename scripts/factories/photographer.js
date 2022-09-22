@@ -211,14 +211,7 @@ function getUserReloadLikes() {
         }
     }
 
-    function JavaScript_FunctionByDate() {
-     
-
-        // mediaOfPhotographers = mediaPhotos.find( media => media.id == id);
-        let likes = mediaOfPhotographers.likes;
-        
-        console.log("likes ", likes);
-    }
+   
 
 function triParTitre(a, b)
 {
