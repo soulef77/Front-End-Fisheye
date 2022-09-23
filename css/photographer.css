@@ -2,7 +2,6 @@
     display: none;
 }
 
-
 header {
     display: flex;
     flex-direction: row;
@@ -47,10 +46,11 @@ header {
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
-    
+
 }
 
-.contact_button:hover, .contact_button:focus {
+.contact_button:hover,
+.contact_button:focus {
     background-color: #d3573c
 }
 
@@ -155,7 +155,7 @@ form input {
 
 .name-likes {
     display: flex;
- 
+
 }
 
 .title {
@@ -227,9 +227,9 @@ textarea {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #cccccc; 
+    background-color: #cccccc;
     opacity: 1;
-     visibility:visible;
+    visibility: visible;
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
@@ -272,10 +272,10 @@ textarea {
 }
 
 .name-likes {
-   display: flex;
-   flex-direction: row;
-   
-    
+    display: flex;
+    flex-direction: row;
+
+
 }
 
 .title {
@@ -283,7 +283,7 @@ textarea {
     color: #901C1C;
     max-width: 75%;
     white-space: nowrap;
-    
+
 }
 
 .likes {
@@ -308,7 +308,7 @@ textarea {
 
 .liked {
     color: #da2d2d;
-    
+
 }
 
 p {
@@ -344,23 +344,7 @@ p {
     }
 }
 
-/* Encart des Likes */
-/* .likes-wrapper {
-    position: fixed;
-    bottom: -15%;
-    right: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 5px 5px 0 0;
-    background-color: #DB8876;
-    /* padding: 21px 31px; */
-
-    /* font-size: 24px;
-    font-weight: 500; */
-/* } */ */
-
-.total-likes {
+*/ .total-likes {
     margin-right: 3rem;
     line-height: 22px;
 }
@@ -370,7 +354,6 @@ p {
     display: flex;
     color: black !important;
 }
-
 
 
 @media (max-width: 992px) {
@@ -420,7 +403,7 @@ p {
         white-space: nowrap;
         align-content: flex-start;
         text-align: left;
-    
+
     }
 
     p.tagline {
@@ -430,7 +413,6 @@ p {
         text-align: left;
     }
 
-     
     .zone-tri {
         display: flex;
         justify-content: center;
