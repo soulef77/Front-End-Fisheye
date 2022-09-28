@@ -69,7 +69,7 @@
     background-color: #808080;
     top: 0px;
     left: 0px;
-    display: none;
+    /* display: none; */
     justify-content: center;
     align-items: center;
 }

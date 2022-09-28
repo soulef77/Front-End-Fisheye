@@ -91,25 +91,7 @@ async function displayMedia() {
         }
     };
 
-    // const getLightBox2 = () => {
-    //     if (video !== undefined) {
-    //         return ` <div class= "card" data-id = ${id}>
-    //       <div class= "title"> ${titre} </div>
-    //       <div class= "picture">
-    //       <img src= ${vid}>
-    //       </div> 
-    //       </div>`;
-    //     }
-    //     else {
-    //         return ` <div class= "card" data-id = ${id}>
-    //       <div class= "title"> ${name} </div>
-    //       <div class= "picture">
-    //       <img src= ${img}>
-    //       </div> 
-    //       </div>`;
-    //     }
-
-    // }
+    
 
     const lighboxDOM = getLightBox();
 

@@ -23,3 +23,14 @@ function closeModal() {
     modal.style.display = "none";
 }
 
+document.addEventListener("keyup", (e) => {
+        switch (e.key) {
+        case "Escape":
+            this.closeModal();
+            break;
+    }
+});
+
+
+
+

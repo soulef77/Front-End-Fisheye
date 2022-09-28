@@ -36,10 +36,10 @@ function photographerFactorySingle(data) {
                     <p class="tagline">${tagline}</p>
                 </div>
                 <div class="justify-center" >
-                <button class="contact_button" onclick="displayModal()" aria-label="Contact Me" tabindex="4">Contactez-moi</button>
+                <button class="contact_button" onclick="displayModal()" aria-label="Contact Me" tabindex="2">Contactez-moi</button>
                      </div>                        
                 <div class="justify-center">
-                        <a class="single-photograph-img" href="photographer.html?id=${id}">
+                        <a class="single-photograph-img" href="photographer.html?id=${id}" tabindex="3">
                             <img src="${picture}" alt="Photo de ${name}">
                         </a>
                 </div>
@@ -234,6 +234,8 @@ function triLikes() {
     mediasOfPhotographers.sort(triParLikes);
     displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
 }
+
+
 
 
 

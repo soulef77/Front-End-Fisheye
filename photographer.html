@@ -16,10 +16,10 @@
 </head>
 
 <body id="body">
-  <header>
-    <a href="index.html"><img src="assets/images/logo.png" class="logo"></a>
+  <header role="banner" >
+    <a href="index.html" tabindex="1"><img src="assets/images/logo.png" class="logo" alt="Nom du site"></a>
   </header>
-  <main id="main" aria-hidden="true">
+  <main id="main" aria-hidden="true" aria-label="conteneur principal" >
     <div class="photograph-header">
       <!-- <button class="contact_button" onclick; >Contactez-moi</button> -->
     </div>
@@ -30,9 +30,9 @@
     <div class="label">
       <h2>Trier par</h2>
     </div>
-    <div class="dropdown">
+    <div class="dropdown"  >
       <button onclick="myFunction()" class="dropbtn"> trier par </button>
-      <div id="myDropdown" class="dropdown-content">
+      <div id="myDropdown" class="dropdown-content" tabindex="9">
         <a href="javascript:triLikes()">Popularité</a>
         <a href="javascript:triDate()">Date</a>
         <a href="javascript:triTitre()">Titre</a>
@@ -50,13 +50,16 @@
     </div>
 
     <!-- lightbox -->
-    <div id="lightbox-container" style="display: none;">
+    <div id="lightbox-container" style="display:none;">
       <div id="content">
         <img class="picture">
       </div>
+      <!-- pour fermer la lightbox -->
       <div id="close" class="close"><a href="javascript:void(0)"
           onclick="document.getElementById('lightbox-container').style.display='none';">x</div></a>
+          <!-- pour faire  un précedent sur la lightbox-->
       <div id="previous" class="previous" onclick="previous(this)">&lt</div>
+      <!-- pour faire un suivant sur la lightbox -->
       <div id="next" class="next" onclick="next(this)">&gt</div>
     </div>
 
@@ -70,7 +73,7 @@
     aria-describedby="modalTitle">
 
     <div class="modal">
-      <header>
+      <header role="banner">
         <h2 id="modalTitle">Contactez-moi</h2>
         <img src="assets/icons/close.svg" onclick="closeModal()" />
       </header>
@@ -79,18 +82,18 @@
         <div>
           <!-- <h1 id="modal-heading">Contactez-moi</h1> -->
           <label>Prénom</label><br>
-          <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
+          <input class="text-control" type="text" id="first" name="first" minlength="2" tabindex="5"/><br>
           <span class="error" id="errorname"></span>
           <label>Nom</label><br>
-          <input class="text-control" type="text" id="last" name="last" minlength="2" /> <br>
+          <input class="text-control" type="text" id="last" name="last" minlength="2" tabindex="6"/> <br>
           <span class="error" id="errorlast"></span>
           <label>Email</label><br>
-          <input class="text-control" type="text" id="email" name="email" /> <br>
+          <input class="text-control" type="text" id="email" name="email" tabindex="7"/> <br>
           <span class="error" id="erroremail"></span>
           <label for="msg"><br>
             Votre message&nbsp;
           </label>
-          <textarea id="message" name="message">
+          <textarea id="message" name="message" tabindex="8">         
               </textarea> <br>
           <span class="error" id="errormsg"></span>
         </div>
