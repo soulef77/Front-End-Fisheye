@@ -46,7 +46,7 @@ async function getPhotographeImage() {
         // console.log("affiche les medias de 1 photographe");
         mediasOfPhotographers = await mediaPhoto.filter(mediaPhoto => mediaPhoto.photographerId === idPhotograph);
 
-        for (i = 0; i < mediasOfPhotographers.length; i++) {
+        for (let i = 0; i < mediasOfPhotographers.length; i++) {
 
             //  console.log(" ID "+ idPhotograph +" mediaPhoto "+ Object.values(mediaPhoto[i]) + " mediasofPhototographers " + (Object.values(mediasOfPhotographers[i])));
         }
@@ -79,9 +79,7 @@ async function displayMediaOnePhotographer(photographers, unPhotographer) {
     photographers.forEach((photographer) => {
         if (photographer != undefined) {
             const photographerModel = photographerFactoryMediaSingle(photographer, unPhotographer);
-
             const userMediaDOM = photographerModel.getMediasCardDOM();
-
 
             if ((photographersSection === null)) {
 
@@ -104,6 +102,7 @@ async function displayDataEncart(photographers) {
         }
     });
 }
+
 
 
 async function init() {

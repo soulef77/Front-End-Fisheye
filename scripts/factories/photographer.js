@@ -31,9 +31,9 @@ function photographerFactorySingle(data) {
     // Fonction de la création des cartes des photographes
     const getUserCardDOM = () => `
                 <div class="single-photograph-text">
-                    <h2>${name}</h2>
-                    <h3>${city}, ${country}</h3>
-                    <p class="tagline">${tagline}</p>
+                    <h1 aria-label="nom du photographe">${name}</h1>
+                    <h2 aria-label="ville du photographe">${city}, ${country}</h2>
+                    <h3><p class="tagline">${tagline}</p></h3>
                 </div>
                 <div class="justify-center" >
                 <button class="contact_button" onclick="displayModal()" aria-label="Contact Me" tabindex="2">Contactez-moi</button>
@@ -48,10 +48,12 @@ function photographerFactorySingle(data) {
     return { name, id, portrait, city, country, tagline, price, getUserCardDOM };
 }
 
+
 function photographerFactoryMediaSingle(dataMedias, dataPhotographer) {
 
     const { name } = dataPhotographer;
     const { date, id, photographerId, price, title, image, video, likes } = dataMedias;
+ 
     const img = `assets/media/${name}/${image}`;
     const vid = `assets/media/${name}/${video}`;
 
@@ -59,43 +61,53 @@ function photographerFactoryMediaSingle(dataMedias, dataPhotographer) {
     const getMediasCardDOM = () => {
         if (video !== undefined) {
             return ` 
-         
+         <article>
             <div class="medias-cards"
                aria-label="Liliac Breasted roller, closeup view">
                     <div  onclick="show(${id})" class="vid cards">
-                        <video src="${vid}" type="video/mp4"></video>
+                        <video src="${vid}" id="media_${id}" type="video/mp4"></video>
                     </div>
               
                 <div class="name-likes">
                     <div class="title">
-                        ${title}
+                        <h3>${title}</h3>
                     </div>
-                    <div class="likes" id="likes-${id}">
-                        <span><p>${likes}</p></span> <i class="fas fa-heart addlike" id="heart-${id}" onclick="addordislike(${id})"  aria-label="likes"></i>
+                    <div class="likes" id="likes-${id}" tabindex="16">
+                        <span><p>${likes}</p></span> 
+                        <div onKeyUp="likeKey(${id})">
+                        <i class="fas fa-heart addlike" id="heart-${id}" onclick="addordislike(${id})"  aria-label="likes" tabindex="16"></i>
+                        </div>
                     </div>
                 </div>
                 
-            </div>`
+            </div>
+            </article>
+            `
         }
         else {
             return `
+            <article>
             <div class="medias-cards"
                 aria-label="Liliac Breasted roller, closeup view">
-                    <div onclick="show(${id})" class="img cards">
-                        <img class="w-100 img-lightbox" src="${img}" alt="Photo de ${name}" >
+                    <div onclick="show(${id})" class="img cards" tabindex="15">
+                        <img class="w-100 img-lightbox" src="${img}" id="media_${id}" alt="Photo de ${name}">
                     </div>
              
                 <div class="name-likes">
-                    <div class="title">
-                        ${title}
-                    </div>
+                <div class="title">
+                <h3>${title}</h3>
+                </div>
                     <div class="likes" id="likes-${id}">
-                        <span><p>${likes}</p></span> 
-                        <i class="fas fa-heart addlike" id="heart-${id}" onclick="addordislike(${id})"></i>
+                         <span><p>${likes}</p></span>
+                         <div onKeyUp="likeKey(${id})">
+                        <i class="fas fa-heart addlike" id="heart-${id}" onclick="addordislike(${id})"  aria-label="likes" tabindex="15"></i>
+                        </div>
                     </div>
                 </div>
                 
-            </div>`
+            </div>
+            </article>
+            `
                 ;
         }
     }
@@ -105,6 +117,7 @@ function photographerFactoryMediaSingle(dataMedias, dataPhotographer) {
 
 
 let l;
+
 function addordislike(id) {
 
     let p = document.getElementById("likes-" + id).children[0].children[0];
@@ -119,6 +132,21 @@ function addordislike(id) {
         displayDataEncart(mediaPhotos);
     }
 }
+
+function likeKey(id)
+{
+    let a = document.querySelector("#likes-"+ id )
+
+    a.addEventListener('keyup', function(el)
+    {
+        if (el.key === "Enter")
+        {
+            el.stopImmediatePropagation() 
+            addordislike(id)  
+        }
+    })
+} 
+
 
 //Fonction qui permet de récupérer le nombre de likes dans le JSON
 let mediaPhotos;
@@ -234,6 +262,8 @@ function triLikes() {
     mediasOfPhotographers.sort(triParLikes);
     displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
 }
+
+
 
 
 

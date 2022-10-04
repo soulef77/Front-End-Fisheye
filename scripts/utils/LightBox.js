@@ -5,11 +5,13 @@ let lightboxcontainer;
 
 let mediasOfLightbox = [];
 let currentIndex;
+let lightBoxMedias;
+
 
 function show(id) {
     async function displayLightBox() {
         let mediasOfPhotographer = await getPhotographeImage();
-        const onePhotographer = await getDataPhotographers();
+        // const onePhotographer = await getDataPhotographers();
 
         if (mediasOfLightbox.length > 0) {
             mediasOfLightbox = mediasOfLightbox;
@@ -24,9 +26,9 @@ function show(id) {
         }
 
         // je récupere l'image qui à été cliquée en retriant "mediasOfLightbox" par l'id de l'image
-        let lightBoxMedias = mediasOfLightbox.find(media => media.id === id);
-
+        lightBoxMedias = mediasOfLightbox.find(media => media.id == id);
         currentIndex = lightBoxMedias.index;
+      
         displayMedia();
     }
     displayLightBox();
@@ -45,7 +47,7 @@ async function getData() {
 
 getData()
     .then(result => {
-        let listCategory = Object.keys(result).map(category => new Category(category));
+        // let listCategory = Object.keys(result).map(category => new Category(category));
 
         document.querySelectorAll("#content").forEach(categoryDOM => {
             categoryDOM.addEventListener("click", (e) => {
@@ -57,11 +59,12 @@ getData()
 
 function display() {
     document.getElementById("lightbox-container").style.display = "inline-block";
-}
+  }
 
 async function displayMedia() {
     const onePhotographer = await getDataPhotographers();
-
+    currentIndex = this.getelementById(this.id);
+    console.log("current index "+ currentIndex);
     lightBoxMedias = mediasOfLightbox[currentIndex];
 
     // titre
@@ -82,16 +85,23 @@ async function displayMedia() {
 
     const getLightBox = () => {
         if (video !== undefined) {
-            return `<video src="${vid}" type="video/mp4" controls aria-label="${titre}" tabindex="2"></video>
-            <div class="title-lightbox">${titre}</div>`;
+            return `
+            <div class="lightbox-image">
+            <video src="${vid}" type="video/mp4" controls aria-label="${titre}" tabindex="8"></video>
+            <div class="title-lightbox">${titre}</div>
+            </div>
+            `;
         }
         else {
-            return `<img src="${img}" alt="Photo de ${name}" aria-label="${titre}" tabindex="2">
-            <div class="title-lightbox">${titre}</div>`;
+            return `
+            <div class="lightbox-image">
+            <img src="${img}" alt="Photo de ${name}" aria-label="${titre}" tabindex="8">
+            <div class="title-lightbox">${titre}</div>
+            </div>
+            `;
         }
     };
-
-    
+   
 
     const lighboxDOM = getLightBox();
 
@@ -102,8 +112,8 @@ async function displayMedia() {
     lightboxcontainer.innerHTML = lighboxDOM;
     // lightboxcontainer.insertAdjacentHTML('beforeEnd',lighboxDOM);
 
-
     display();
+  
 }
 
 function next(element) {
@@ -131,10 +141,9 @@ function previous(element) {
 lightboxcontainer;
 function close() {
 
-    console.log("close ");
+    // console.log("close ");
 
     document.getElementById('lightbox-container').style.display = 'none';
-
     document.querySelector("#content").classList.remove("show");
 
     // je vide la lightbox
@@ -171,12 +180,23 @@ document.addEventListener("keyup", (e) => {
         case "Escape":
             this.close();
             break;
+
+       
+    }
+});
+
+
+document.addEventListener("keyup", (e) => {
+    switch (e.key) {
+    case "Enter":
+        const id= e.target.children[0].id.split("_")[1];
+        this.show(id);
+        break;
     }
 });
 
 
 function getelementById(id) {
-
     return currentIndex;
 }
 

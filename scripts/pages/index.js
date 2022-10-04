@@ -94,14 +94,14 @@ async function displayData(photographers) {
             photographersSection.insertAdjacentHTML('beforeEnd', userCardDOM);
         }
     });
-};
+}
 
 async function init() {
     // Récupère les datas des photographes
     const { photographers } = await getPhotographers();
     displayData(photographers);
 
-};
+}
 
 init();
 

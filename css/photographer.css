@@ -20,11 +20,23 @@ header {
     align-items: center;
 }
 
-.photograph-header h2 {
+.photograph-header h1 {
     color: #d3573c;
-    font-size: 64px;
-    margin: 0;
+    font-size: 54px;
+    margin: 50px 0 0 70px;
 }
+
+
+.photograph-header h2 {
+    color: #901C1C;
+    font-size: 34px;
+    margin: 0 0 0 70px;
+}
+
+.photograph-header h3 {
+    margin: 25px 0 0 70px;
+}
+
 
 .photograph-header img {
     border-radius: 50%;
@@ -102,6 +114,7 @@ form div {
 }
 
 form input {
+    font-size: 35px;
     width: 100%;
     height: 68px;
     border: none;
@@ -163,10 +176,10 @@ form input {
     color: #901C1C;
 }
 
-.likes {
+/* .likes {
     font-size: 24px;
     color: #901C1C;
-}
+} */
 
 article.encart {
     display: flex;
@@ -255,6 +268,11 @@ textarea {
     margin-bottom: 40px;
 }
 
+.img cards{
+    height: 250px;
+    width: 250px;
+}
+
 .img>img {
     height: 250px;
     width: 250px;
@@ -276,11 +294,12 @@ textarea {
 
 }
 
-.title {
+.title h3 {
     font-size: 15px;
     color: #901C1C;
     max-width: 75%;
     white-space: nowrap;
+    margin: 0;
 
 }
 
@@ -291,6 +310,7 @@ textarea {
     flex-direction: row;
     text-align: left;
     margin-left: auto;
+    
 }
 
 .fa-heart {
@@ -342,7 +362,7 @@ p {
     }
 }
 
-*/ .total-likes {
+ .total-likes {
     margin-right: 3rem;
     line-height: 22px;
 }

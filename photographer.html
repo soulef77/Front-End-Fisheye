@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="fr">
 <head>
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-  <link href="css/lightbox.css" rel="stylesheet" type="text/css" />
-  <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/lightbox.css" rel="stylesheet" type="text/css">
+  <link href="css/photographer.css" rel="stylesheet" type="text/css">
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="image" type="image/jpg" href="assets/images/">
@@ -16,12 +15,12 @@
 </head>
 
 <body id="body">
-  <header role="banner" >
-    <a href="index.html" tabindex="1"><img src="assets/images/logo.png" class="logo" alt="Nom du site"></a>
+  <header>
+    <h1><a href="index.html" tabindex="1"><img src="assets/images/logo.png" class="logo" alt="Nom du site"></a></h1>
+   
   </header>
   <main id="main" aria-hidden="true" aria-label="conteneur principal" >
     <div class="photograph-header">
-      <!-- <button class="contact_button" onclick; >Contactez-moi</button> -->
     </div>
 
     <!-- Partie Tri -->
@@ -31,15 +30,16 @@
       <h2>Trier par</h2>
     </div>
     <div class="dropdown"  >
-      <button onclick="myFunction()" class="dropbtn"> trier par </button>
-      <div id="myDropdown" class="dropdown-content" tabindex="9">
-        <a href="javascript:triLikes()">Popularité</a>
-        <a href="javascript:triDate()">Date</a>
-        <a href="javascript:triTitre()">Titre</a>
+      <button onclick="myFunction()" class="dropbtn" tabindex="10"> trier par </button>
+      <div id="myDropdown" class="dropdown-content" >
+        <a href="javascript:triLikes()" tabindex="11">Popularité</a>
+        <a href="javascript:triDate()" tabindex="12">Date</a>
+        <a href="javascript:triTitre()" tabindex="13">Titre</a>
       </div>
     </div>
 
     <div class="media_section">
+    <!-- ici s'affichent les cartes des photographes -->
     </div>
 
     <div class="likes-wrapper">
@@ -50,58 +50,59 @@
     </div>
 
     <!-- lightbox -->
-    <div id="lightbox-container" style="display:none;">
+    <div id="lightbox-container" style="display:none;" tabindex="14">
       <div id="content">
-        <img class="picture">
+        <!-- <img class="picture"> -->
       </div>
       <!-- pour fermer la lightbox -->
       <div id="close" class="close"><a href="javascript:void(0)"
-          onclick="document.getElementById('lightbox-container').style.display='none';">x</div></a>
+          onclick="document.getElementById('lightbox-container').style.display='none';">x</a></div>
           <!-- pour faire  un précedent sur la lightbox-->
-      <div id="previous" class="previous" onclick="previous(this)">&lt</div>
+      <div id="previous" class="previous" onclick="previous(this)">&lt;</div>
       <!-- pour faire un suivant sur la lightbox -->
-      <div id="next" class="next" onclick="next(this)">&gt</div>
+      <div id="next" class="next" onclick="next(this)">&gt;</div>
     </div>
 
     <!-- Ici s'afiche le petit encart avec le nombre de likes et le tarif journalier -->
     <div class="encart">
+    </div>
 
   </main>
 
   <!-- La modale contact qui s'affche -->
-  <div id="contact_modal" aria-modal="true" aria-hidden="true" role="dialog" aria-labelledby="modal-heading"
+  <div id="contact_modal" aria-modal="true" aria-hidden="true" role="dialog" aria-labelledby="modalTitle"
     aria-describedby="modalTitle">
 
     <div class="modal">
-      <header role="banner">
+      <header>
         <h2 id="modalTitle">Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <img src="assets/icons/close.svg" alt="image de fermeture de la modale" onclick="closeModal()" >
       </header>
       <form name="myForm" action="index.html" onsubmit="return validateForm() && 
-          closeModal()" method="dialog">
+          closeModal()" method="post">
         <div>
           <!-- <h1 id="modal-heading">Contactez-moi</h1> -->
           <label>Prénom</label><br>
-          <input class="text-control" type="text" id="first" name="first" minlength="2" tabindex="5"/><br>
+          <input class="text-control" type="text" id="first" name="first" minlength="2" tabindex="5"><br>
           <span class="error" id="errorname"></span>
           <label>Nom</label><br>
-          <input class="text-control" type="text" id="last" name="last" minlength="2" tabindex="6"/> <br>
+          <input class="text-control" type="text" id="last" name="last" minlength="2" tabindex="6"> <br>
           <span class="error" id="errorlast"></span>
           <label>Email</label><br>
-          <input class="text-control" type="text" id="email" name="email" tabindex="7"/> <br>
+          <input class="text-control" type="text" id="email" name="email" tabindex="7"> <br>
           <span class="error" id="erroremail"></span>
-          <label for="msg"><br>
+          <label><br>
             Votre message&nbsp;
           </label>
           <textarea id="message" name="message" tabindex="8">         
               </textarea> <br>
           <span class="error" id="errormsg"></span>
         </div>
-        <button class="contact_button">Envoyer</button>
+        <button class="contact_button" tabindex="9">Envoyer</button>
       </form>
     </div>
   </div>
-  </div>
+  
 
   <script src="scripts/utils/validateForm.js"></script>
   <script src="scripts/utils/contactForm.js"></script>

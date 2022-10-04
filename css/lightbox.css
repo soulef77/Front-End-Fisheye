@@ -9,7 +9,7 @@
     border-radius: 5px;
 
 }
-
+/* 
 #content img {
     position: absolute;
     left: 0%;
@@ -19,7 +19,7 @@
     max-height: 80%;
     object-fit: cover;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; 
 }
 
 #content video {
@@ -30,20 +30,66 @@
     bottom: 0%;
     max-height: 80%;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; 
 }
 
-#content .title-lightbox {
-    margin: 45% 0% 0% 30%;
+
+
+ #content .title-lightbox {
+     margin: 45% 0% 0% 36%; 
+} 
+
+  #content .lightbox-image {
     font-size: 24px;
     color: #901C1C;
     font-weight: 400;
+    margin-left: auto;
+    margin-right: auto; 
+   
+} */
 
+
+#content
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin: 80px 50px;
+}
+#content img {
+   
+    max-height: 45%;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto; 
 }
 
-
+#content video {
+    
+    max-height: 50%;
+    margin-left: auto;
+    margin-right: auto; 
+}
+#content>img,
+#content>video
+{
+     max-height: 100%;
+}
+.title-lightbox
+{
+    font-size: 24px;
+    color: #901C1C;
+    font-weight: 400;
+}
+.lightbox-image {
+   
+    margin-left: auto;
+    margin-right: auto;
+}
+/*
 /* autre méthode */
-
+/* 
 #gallery {
     display: flex;
     flex-direction: row;
@@ -70,9 +116,9 @@
     top: 0px;
     left: 0px;
     /* display: none; */
-    justify-content: center;
-    align-items: center;
-}
+    /* justify-content: center;
+    align-items: center; */
+/* }
 
 #lightbox.show {
     display: flex;
@@ -88,14 +134,15 @@
 #lightbox #content .picture {
     width: 100%;
     position: relative;
-}
+} */ 
+
 
 #lightbox-container .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
     left: auto;
-    right: 15%;
+    right: 5%;
     color: #901C1C;
     font-weight: bold;
     font-size: 70px;
@@ -107,7 +154,7 @@
     position: absolute;
     top: 50%;
     right: auto;
-    left: 15%;
+    left: 5%;
     color: #901C1C;
     font-weight: bold;
     font-size: 70px;
@@ -130,7 +177,7 @@
     position: absolute;
     top: 7%;
     left: auto;
-    right: 15%;
+    right: 5%;
     font-size: 70px;
 }
 
