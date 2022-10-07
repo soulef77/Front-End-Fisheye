@@ -1,5 +1,5 @@
 
-
+// Cette fonction permet de définir la page d'accueil avec la photo du photographe et ses informartions.
 function photographerFactory(data) {
     const { name, id, portrait, city, country, tagline, price } = data;
 
@@ -22,7 +22,7 @@ function photographerFactory(data) {
 }
 
 
-// Fonction pour afficher la page de 1 photographe
+// Fonction pour afficher la page d'un photographe
 function photographerFactorySingle(data) {
 
     const { name, id, portrait, city, country, tagline, price } = data;
@@ -31,13 +31,13 @@ function photographerFactorySingle(data) {
     // Fonction de la création des cartes des photographes
     const getUserCardDOM = () => `
                 <div class="single-photograph-text">
-                    <h1 aria-label="nom du photographe">${name}</h1>
-                    <h2 aria-label="ville du photographe">${city}, ${country}</h2>
+                    <h1>${name}</h1>
+                    <h2>${city}, ${country}</h2>
                     <h3><p class="tagline">${tagline}</p></h3>
                 </div>
                 <div class="justify-center" >
-                <button class="contact_button" onclick="displayModal()" aria-label="Contact Me" tabindex="2">Contactez-moi</button>
-                     </div>                        
+                    <button class="contact_button" onclick="displayModal()" aria-label="Contact Me" tabindex="2">Contactez-moi</button>
+                </div>                        
                 <div class="justify-center">
                         <a class="single-photograph-img" href="photographer.html?id=${id}" tabindex="3">
                             <img src="${picture}" alt="Photo de ${name}">
@@ -48,7 +48,7 @@ function photographerFactorySingle(data) {
     return { name, id, portrait, city, country, tagline, price, getUserCardDOM };
 }
 
-
+// Cette fonction permet de créer les cartes des photographers. 
 function photographerFactoryMediaSingle(dataMedias, dataPhotographer) {
 
     const { name } = dataPhotographer;
@@ -69,7 +69,7 @@ function photographerFactoryMediaSingle(dataMedias, dataPhotographer) {
                     </div>
               
                 <div class="name-likes">
-                    <div class="title">
+                    <div class="title" aria-label="${title}">
                         <h3>${title}</h3>
                     </div>
                     <div class="likes" id="likes-${id}" tabindex="16">
@@ -90,11 +90,11 @@ function photographerFactoryMediaSingle(dataMedias, dataPhotographer) {
             <div class="medias-cards"
                 aria-label="Liliac Breasted roller, closeup view">
                     <div onclick="show(${id})" class="img cards" tabindex="15">
-                        <img class="w-100 img-lightbox" src="${img}" id="media_${id}" alt="Photo de ${name}">
+                        <img class="w-100 img-lightbox" src="${img}" id="media_${id}" alt="Photo de ${name}" aria-label="${name}">
                     </div>
              
                 <div class="name-likes">
-                <div class="title">
+                <div class="title" aria-label="${title}">
                 <h3>${title}</h3>
                 </div>
                     <div class="likes" id="likes-${id}">
@@ -117,7 +117,7 @@ function photographerFactoryMediaSingle(dataMedias, dataPhotographer) {
 
 
 let l;
-
+// Fonction qui permet de rajouter un like 
 function addordislike(id) {
 
     let p = document.getElementById("likes-" + id).children[0].children[0];
@@ -133,20 +133,6 @@ function addordislike(id) {
     }
 }
 
-function likeKey(id)
-{
-    let a = document.querySelector("#likes-"+ id )
-
-    a.addEventListener('keyup', function(el)
-    {
-        if (el.key === "Enter")
-        {
-            el.stopImmediatePropagation() 
-            addordislike(id)  
-        }
-    })
-} 
-
 
 //Fonction qui permet de récupérer le nombre de likes dans le JSON
 let mediaPhotos;
@@ -157,11 +143,27 @@ function getLikesMedia(id) {
 
     // .find renvoie une array de tous les éléments filtrées par la condition. 
     // On sait qu'il y a un seul média pour cet id donc on récupère le premier : [0]
-    mediaOfPhotographers = mediaPhotos.find(media => media.id == id);
+    mediaOfPhotographers = mediaPhotos.find(media => (media.id == id) && (media.photographerId == idPhotograph));
     let nbreLikes = mediaOfPhotographers.likes;
+    // console.log("nombre de likes ", nbreLikes);
     return nbreLikes;
 
 }
+
+
+// Fonction qui permet de rajouter un like au clavier
+function likeKey(id)
+{
+    let a = document.querySelector("#likes-"+ id )
+    a.addEventListener('keyup', function(el)
+    {
+        if (el.key === "Enter")
+        {
+            el.stopImmediatePropagation() 
+            addordislike(id)  
+        }
+    })
+} 
 
 
 //Fonction qui permet de rajouter le nombre de likes dans l'encart.
@@ -178,7 +180,6 @@ function Encart(data) {
 
             ;
     }
-    // console.log(" CONTROLE DE NBDELIKES "+ nbDeLikes);
     return { data, nbDeLikes, getEncart };
 
 }

@@ -1,5 +1,5 @@
 
-
+// Cette fonction permet de récupérer les données JSON des photographes. 
 async function getPhotographers() {
 
     // Penser à remplacer par les données récupérées dans le json
@@ -75,14 +75,10 @@ async function getPhotographers() {
        
     });
     return obj;
-
-   
-    // et bien retourner le tableau photographers seulement une fois
-    // return ({
-    //     photographers: [...photographers, ...photographers, ...photographers]
-    // });
+  
 }
 
+// Cette fonction permet de faire appel à la fonction pour définir la page d'accueil des photographes. 
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
 

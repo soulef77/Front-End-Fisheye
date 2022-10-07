@@ -1,8 +1,7 @@
-// // autre méthode
-// // je récupere la lightbox pour y inserer l'image
+
+// // Je récupere la lightbox pour y inserer l'image
 
 let lightboxcontainer;
-
 let mediasOfLightbox = [];
 let currentIndex;
 let lightBoxMedias;
@@ -11,8 +10,7 @@ let lightBoxMedias;
 function show(id) {
     async function displayLightBox() {
         let mediasOfPhotographer = await getPhotographeImage();
-        // const onePhotographer = await getDataPhotographers();
-
+      
         if (mediasOfLightbox.length > 0) {
             mediasOfLightbox = mediasOfLightbox;
         }
@@ -35,21 +33,19 @@ function show(id) {
 }
 
 
-
+//permet de lire les données JSON
 async function getData() {
     let response = await fetch('./data/photographers.json');
     let datas = await response.text();
-
     let obj = JSON.parse(datas);
     return obj;
 }
 
 
+// Permet de rajouter un listener au document.
 getData()
     .then(result => {
-        // let listCategory = Object.keys(result).map(category => new Category(category));
-
-        document.querySelectorAll("#content").forEach(categoryDOM => {
+            document.querySelectorAll("#content").forEach(categoryDOM => {
             categoryDOM.addEventListener("click", (e) => {
                 this.focus();
                 this.manageEvent(e.currentTarget.dataset.id);
@@ -57,14 +53,15 @@ getData()
         });
     });
 
+// Cette fonction permet d'ouvrir la lightbox
 function display() {
     document.getElementById("lightbox-container").style.display = "inline-block";
   }
 
+// Fonction qui permet de définir la lightBox
 async function displayMedia() {
     const onePhotographer = await getDataPhotographers();
     currentIndex = this.getelementById(this.id);
-    console.log("current index "+ currentIndex);
     lightBoxMedias = mediasOfLightbox[currentIndex];
 
     // titre
@@ -107,15 +104,13 @@ async function displayMedia() {
 
     // j'insere le bloc html image ou vidéo dans la div de la lightbox
     lightboxcontainer = document.getElementById("content");
-    //  lightboxcontainer.style.display= "block";
-
     lightboxcontainer.innerHTML = lighboxDOM;
-    // lightboxcontainer.insertAdjacentHTML('beforeEnd',lighboxDOM);
-
+   
     display();
   
 }
 
+//fonction pour afficher la prochaine photographie
 function next(element) {
     if (currentIndex === mediasOfLightbox.length - 1) {
         currentIndex = 0;
@@ -127,6 +122,8 @@ function next(element) {
     displayMedia();
 }
 
+
+//fonction pour afficher la précédente photographie
 function previous(element) {
     if (currentIndex === 0) {
         currentIndex = mediasOfLightbox.length - 1;
@@ -156,7 +153,7 @@ function close() {
 
 
 
-
+//fonction pour faire appel au bonton close
 function manageEvent() {
     document.querySelector("#lightbox-container .close").addEventListener("close", () => {
         this.close();
@@ -164,6 +161,7 @@ function manageEvent() {
 
 }
 
+// permet d'écouter le clavier en faisant appel aux fonctions précédentes.
 document.addEventListener("keyup", (e) => {
     if (document.getElementById('lightbox-container').style.display == 'none') {
         return;
@@ -185,7 +183,7 @@ document.addEventListener("keyup", (e) => {
     }
 });
 
-
+// Pour écouter le document lorsqu'on clique sur la touche entrée.
 document.addEventListener("keyup", (e) => {
     switch (e.key) {
     case "Enter":
@@ -195,7 +193,7 @@ document.addEventListener("keyup", (e) => {
     }
 });
 
-
+// cette fonction permet de retourner l'index courant.
 function getelementById(id) {
     return currentIndex;
 }

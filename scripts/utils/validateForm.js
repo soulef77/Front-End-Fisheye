@@ -1,3 +1,5 @@
+
+
 function validateForm() {
     var name = document.forms["myForm"]["first"];
     var last = document.forms["myForm"]["last"];
@@ -48,6 +50,6 @@ function validateForm() {
         document.getElementById('errormsg').innerHTML = "";
     }
 
-    //  console.log("veification first "+ name.value +" "+ email.value + " " + message.value);
-    return true;
+       console.log("vérification first "+ name.value +" "+ email.value + " " + message.value);
+      return false;
 }

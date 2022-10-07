@@ -1,4 +1,4 @@
-//Mettre le code JavaScript lié à la page photographer.html
+//Code JavaScript lié à la page photographer.html
 
 
 let idPhotograph;
@@ -29,7 +29,7 @@ async function getDataPhotographers() {
 
 let mediaPhoto;
 let mediasOfPhotographers;
-// Récuperer les images de 1 photographe
+// Récuperer les images d'un photographe
 async function getPhotographeImage() {
     // va chercher l'api
     let response = await fetch('./data/photographers.json');
@@ -41,6 +41,7 @@ async function getPhotographeImage() {
     mediaPhoto = photographerMedias.media;
     
     if (photographerMedias.media === undefined && mediaPhoto[0]["photographerId"] == undefined) {
+        return;
     } else {
         // je vais chercher les infos de 1 photographe par son id passée en URL
         // console.log("affiche les medias de 1 photographe");
@@ -72,7 +73,7 @@ async function displayDataOnePhotographer(onePhotographer) {
     }
 }
 
-
+//Renvoie les données et les fait apparaître dans le dom dans ".media_section"
 async function displayMediaOnePhotographer(photographers, unPhotographer) {
     const photographersSection = document.querySelector(".media_section");
     photographersSection.innerHTML = "";
@@ -82,6 +83,7 @@ async function displayMediaOnePhotographer(photographers, unPhotographer) {
             const userMediaDOM = photographerModel.getMediasCardDOM();
 
             if ((photographersSection === null)) {
+                return;
 
             } else {
                 photographersSection.insertAdjacentHTML('beforeEnd', userMediaDOM);
@@ -91,6 +93,7 @@ async function displayMediaOnePhotographer(photographers, unPhotographer) {
     });
 }
 
+// Cette fonction permet de définir l'encart
 async function displayDataEncart(photographers) {
     const photographersEncart = document.querySelector(".encart");
     photographers.forEach((photographer) => {
