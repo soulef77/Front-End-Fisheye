@@ -74,58 +74,121 @@ h1 {
 .label {
     float: left;
     margin: 0 30px 0 55px;
-    color: #000000;
 }
-
+/* 
 /* Bouton du dropdown */
 .dropbtn {
-    float: right;
-    margin: 15px 0 0 0;
+    width: 200px;
+    text-align: center;
     background-color: #901C1C;
     color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 15px;
     border-radius: 5px;
+    border-bottom: 1px solid #ffffff;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    
 }
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover,
 .dropbtn:focus {
-    background-color: #901C1C;
+    /* background-color: #901C1C; */
+    border-bottom: 1px solid #ffffff;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
     display: inline-block;
+    border-bottom: 1px solid #ffffff;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #901C1C;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.dropdown {
     color: #ffffff;
     padding: 12px 16px;
-    text-decoration: none;
+    /* text-decoration: none; */
     display: block;
+    border-top: solid 1px white;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
     display: block;
+} 
+/* 
+select:hover
+{
+    cursor: pointer;
+    border-bottom: 1px solid #ffffff;
+} */
+
+.filter-option {
+    position: relative;
+    display: block;
+    margin: 0 2rem 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    line-height: 6rem;
+    cursor: pointer;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    /* border-bottom: 1px solid #ffffff; */
+   
 }
+
+.filter-option:not(.selected) {
+    border-top: solid 0.1rem white;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.zone-tri {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 
+select
+{
+    width: 200px;
+    text-align: center;
+    background-color: #901C1C;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 20px;
+    border-radius: 5px;
+    
+}
+select:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
+    border-top: solid 0.8rem white;
+}
+*/
+
+.select:focus, .select:active
+{
+    border-top: solid 1rem white;
+} 
+
+.filter-option:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid #ffffff;
+    border-color: #fff transparent transparent transparent;
+  }

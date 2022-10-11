@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 // Cette fonction permet de définir la page d'accueil avec la photo du photographe et ses informartions.
 function photographerFactory(data) {
@@ -70,7 +71,7 @@ function photographerFactoryMediaSingle(dataMedias, dataPhotographer) {
               
                 <div class="name-likes">
                     <div class="title" aria-label="${title}">
-                        <h3>${title}</h3>
+                        ${title}
                     </div>
                     <div class="likes" id="likes-${id}" tabindex="16">
                         <span><p>${likes}</p></span> 
@@ -95,7 +96,7 @@ function photographerFactoryMediaSingle(dataMedias, dataPhotographer) {
              
                 <div class="name-likes">
                 <div class="title" aria-label="${title}">
-                <h3>${title}</h3>
+                ${title}
                 </div>
                     <div class="likes" id="likes-${id}">
                          <span><p>${likes}</p></span>
@@ -129,6 +130,7 @@ function addordislike(id) {
     if (likesPhotographer === l) {
         p.innerText = l + 1;
         nbDeLikes = getUserReloadLikes();
+        // eslint-disable-next-line no-undef
         displayDataEncart(mediaPhotos);
     }
 }
@@ -139,6 +141,7 @@ let mediaPhotos;
 let mediaOfPhotographers;
 function getLikesMedia(id) {
 
+    // eslint-disable-next-line no-undef
     mediaPhotos = photographers.media;
 
     // .find renvoie une array de tous les éléments filtrées par la condition. 
@@ -152,6 +155,7 @@ function getLikesMedia(id) {
 
 
 // Fonction qui permet de rajouter un like au clavier
+// eslint-disable-next-line no-unused-vars
 function likeKey(id)
 {
     let a = document.querySelector("#likes-"+ id )
@@ -217,52 +221,71 @@ window.onclick = function (event) {
     }
 }
 
+let mediasSorteds = [];
+
+   function triBy(value) {
+    
+        if(value == "title") {
+
+         
+       // eslint-disable-next-line no-inner-declarations
+       function triParTitre(a, b) {
+                if (a.title < b.title) {
+                    return (-1);
+                }
+                if (a.title > b.title) {
+                    return (1);
+                }
+                return (0);
+            }
+        
+        
+                mediasSorteds = mediasOfPhotographers.sort(triParTitre);
+                displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
+        }
+        
 
 
-function triParTitre(a, b) {
-    if (a.title < b.title) {
-        return (-1);
+        if(value == "date") {
+
+            // eslint-disable-next-line no-inner-declarations
+            function triParDate(a, b) {
+                if (a.date < b.date) {
+                    return (-1);
+                }
+                if (a.date > b.date) {
+                    return (1);
+                }
+                return (0);
+            }
+        
+        
+                mediasSorteds=  mediasOfPhotographers.sort(triParDate);
+                displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
+            
+        }
+
+        if(value == "likes") {
+
+            // eslint-disable-next-line no-inner-declarations
+            function triParLikes(a, b) {
+                if (a.likes < b.likes) {
+                    return (-1);
+                }
+                if (a.likes > b.likes) {
+                    return (1);
+                }
+                return (0);
+            }
+        
+        
+                mediasSorteds= mediasOfPhotographers.sort(triParLikes);
+                displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
+            
+        }
+            
     }
-    if (a.title > b.title) {
-        return (1);
-    }
-    return (0);
-}
 
-function triTitre() {
-    mediasOfPhotographers.sort(triParTitre);
-    displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
-}
-
-function triParDate(a, b) {
-    if (a.date < b.date) {
-        return (-1);
-    }
-    if (a.date > b.date) {
-        return (1);
-    }
-    return (0);
-}
-
-function triDate() {
-    mediasOfPhotographers.sort(triParDate);
-    displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
-}
-
-function triParLikes(a, b) {
-    if (a.likes < b.likes) {
-        return (-1);
-    }
-    if (a.likes > b.likes) {
-        return (1);
-    }
-    return (0);
-}
-
-function triLikes() {
-    mediasOfPhotographers.sort(triParLikes);
-    displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
-}
 
 
 

@@ -2,79 +2,13 @@
 // Cette fonction permet de récupérer les données JSON des photographes. 
 async function getPhotographers() {
 
-    // Penser à remplacer par les données récupérées dans le json
-    const photographers = [
-        {
-            "name": "Mimi Keel",
-            "id": 243,
-            "city": "London",
-            "country": "UK",
-            "tagline": "Voir le beau dans le quotidien",
-            "price": 400,
-            "portrait": "\Front-End-Fisheye\assets\photographers\Photographers ID Photos\MimiKeel.jpg"
-        },
-        {
-            "name": "Ellie-Rose Wilkens",
-            "id": 930,
-            "city": "Paris",
-            "country": "France",
-            "tagline": "Capturer des compositions complexes",
-            "price": 250,
-            "portrait": "\Front-End-Fisheye\assets\photographers\Photographers ID Photos\EllieRoseWilkens.jpg"
-        },
-        {
-            "name": "Tracy Galindo",
-            "id": 82,
-            "city": "Montreal",
-            "country": "Canada",
-            "tagline": "Photographe freelance",
-            "price": 500,
-            "portrait": "\Front-End-Fisheye\assets\photographers\Photographers ID Photos\TracyGalindo.jpg"
-        },
-        {
-            "name": "Nabeel Bradford",
-            "id": 527,
-            "city": "Mexico City",
-            "country": "Mexico",
-            "tagline": "Toujours aller de l'avant",
-            "price": 350,
-            "portrait": "\Front-End-Fisheye\assets\photographers\Photographers ID Photos\NabeelBradford.jpg"
-        },
-        {
-            "name": "Rhode Dubois",
-            "id": 925,
-            "city": "Barcelona",
-            "country": "Spain",
-            "tagline": "Je crée des souvenirs",
-            "price": 275,
-            "portrait": "\Front-End-Fisheye\assets\photographers\Photographers ID Photos\RhodeDubois.jpg"
-        },
-        {
-            "name": "Marcel Nikolic",
-            "id": 195,
-            "city": "Berlin",
-            "country": "Germany",
-            "tagline": "Toujours à la recherche de LA photo",
-            "price": 300,
-            "portrait": "\Front-End-Fisheye\assets\photographers\Photographers ID Photos\MarcelNikolic.jpg"
-        }
-    ]
 
     let response = await fetch('/Front-End-Fisheye/data/photographers.json');
-    let datas = await response.text();
-    fetch("/Front-End-Fisheye/data/photographers.json")
-        .then(response => {
-        })
-    let obj = JSON.parse(datas);
-    const arrays = [];
+    
+    // lire le corps de réponse et analyser en JSON
+     let photographers = await response.json(); 
 
-    for (var i in obj) {
-        arrays.push([i, obj[i]]);
-    }
-    arrays.forEach(function (array) {
-       
-    });
-    return obj;
+     return photographers
   
 }
 

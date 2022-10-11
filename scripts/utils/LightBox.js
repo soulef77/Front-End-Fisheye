@@ -2,26 +2,30 @@
 // // Je récupere la lightbox pour y inserer l'image
 
 let lightboxcontainer;
-let mediasOfLightbox = [];
+
 let currentIndex;
 let lightBoxMedias;
-
+let mediasOfLightbox = [];
 
 function show(id) {
     async function displayLightBox() {
         let mediasOfPhotographer = await getPhotographeImage();
-      
-        if (mediasOfLightbox.length > 0) {
-            mediasOfLightbox = mediasOfLightbox;
+         
+        if ( mediasSorteds.length > 0 )
+        {
+            mediasOfLightbox = mediasSorteds;
         }
-        else {
+        else
+        {
             mediasOfLightbox = mediasOfPhotographer;
         }
-
+        
         // je réinitialise les index des images
-        for (let i = 0; i < mediasOfLightbox.length; i++) {
+        for (let i = 0; i< mediasOfLightbox.length; i++)
+        {
             mediasOfLightbox[i].index = i;
         }
+
 
         // je récupere l'image qui à été cliquée en retriant "mediasOfLightbox" par l'id de l'image
         lightBoxMedias = mediasOfLightbox.find(media => media.id == id);
@@ -61,7 +65,7 @@ function display() {
 // Fonction qui permet de définir la lightBox
 async function displayMedia() {
     const onePhotographer = await getDataPhotographers();
-    currentIndex = this.getelementById(this.id);
+    // currentIndex = this.getelementById(this.id);
     lightBoxMedias = mediasOfLightbox[currentIndex];
 
     // titre
@@ -138,7 +142,7 @@ function previous(element) {
 lightboxcontainer;
 function close() {
 
-    // console.log("close ");
+  
 
     document.getElementById('lightbox-container').style.display = 'none';
     document.querySelector("#content").classList.remove("show");

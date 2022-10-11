@@ -1,6 +1,7 @@
 
 
 function validateForm() {
+  
     var name = document.forms["myForm"]["first"];
     var last = document.forms["myForm"]["last"];
     var email = document.forms["myForm"]["email"];
@@ -50,6 +51,6 @@ function validateForm() {
         document.getElementById('errormsg').innerHTML = "";
     }
 
-       console.log("vérification first "+ name.value +" "+ email.value + " " + message.value);
-      return false;
+      console.log("vérification first "+ name.value +" "+ email.value + " " + message.value);
+      return true;
 }

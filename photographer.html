@@ -30,12 +30,12 @@
       <h2>Trier par</h2>
     </div>
     <div class="dropdown"  >
-      <button onclick="myFunction()" class="dropbtn" tabindex="10"> trier par </button>
-      <div id="myDropdown" class="dropdown-content" >
-        <a href="javascript:triLikes()" tabindex="11">Popularité</a>
-        <a href="javascript:triDate()" tabindex="12">Date</a>
-        <a href="javascript:triTitre()" tabindex="13">Titre</a>
-      </div>
+      <select name="sortby" class="dropbtn" id="sort-page" onchange="triBy(value)" tabindex="10">
+        <option class="filter-option" disabled selected hidden>Selectionner</option>
+        <option class="filter-option" value="likes" tabindex="11" aria-selected="true" aria-label="trier par popularité">Popularite</option>
+        <option class="filter-option" value="date" tabindex="12"  aria-selected="true" aria-label="trier par date">Date</option>
+        <option class="filter-option" value="title" tabindex="13"  aria-selected="true" aria-label="trier par titre">Titre</option>
+      </select>
     </div>
 
     <div class="media_section">
@@ -78,8 +78,8 @@
         <h2 id="modalTitle">Contactez-moi</h2>
         <img src="assets/icons/close.svg" alt="image de fermeture de la modale" onclick="closeModal()" >
       </header>
-      <form name="myForm" action="index.html" onsubmit="return validateForm() && 
-          closeModal()" method="post">
+      <form name="myForm"  onsubmit="return validateForm() && 
+          closeModal()">
         <div>
           <!-- <h1 id="modal-heading">Contactez-moi</h1> -->
           <label>Prénom</label><br>
@@ -98,7 +98,7 @@
               </textarea> <br>
           <span class="error" id="errormsg"></span>
         </div>
-        <button class="contact_button" tabindex="9">Envoyer</button>
+        <button type="submit" class="contact_button" tabindex="9">Envoyer</button>
       </form>
     </div>
   </div>

@@ -2,13 +2,22 @@
 let modalBtn = document.querySelectorAll('.photograph-header .single-text .contact_button');
 const modal = document.getElementById("contact_modal");
 
-// Global DOM var
-const $body = document.getElementById("#body");
-const $openModalBtn = document.querySelectorAll('.open-modal-btn');
-const $main = document.getElementById("#main");
-const $contact_modal = document.getElementById('.contact_modal');
-const $modalTitle = document.getElementsByClassName('.modal-title');
-const $modalCloseBtn = document.querySelectorAll('.modal-close-btn');
+// // Global DOM var
+// const $body = document.getElementById("#body");
+// const $openModalBtn = document.querySelectorAll('.open-modal-btn');
+// const $main = document.getElementById("#main");
+// const $contact_modal = document.getElementById('.contact_modal');
+// const $modalTitle = document.getElementsByClassName('.modal-title');
+// const $modalCloseBtn = document.querySelectorAll('.modal-close-btn');
+
+
+ // J'empeche l'envoie du formulaire
+ let form = document.getElementById("contact_modal")
+ form.addEventListener('submit', function(e)
+ { 
+     e.preventDefault()
+ })
+
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener('click', displayModal, false));
