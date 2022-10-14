@@ -3,9 +3,9 @@
 
 let idPhotograph;
 // Je récupere l'url
-let parsedUrl = new URL(window.location.href);
+let parseUrl = new URL(window.location.href);
 // Je récupere uniquement l'id et je la transfere dans une variable 
-idPhotograph = parsedUrl.searchParams.get("id")
+idPhotograph = parseUrl.searchParams.get("id")
 
 // Je convertis l'id en nombre
 idPhotograph = Number(idPhotograph);
@@ -107,6 +107,70 @@ async function displayDataEncart(photographers) {
 }
 
 
+let mediasSorteds = [];
+
+   function triBy(value) {
+    
+        if(value == "title") {
+
+         
+       // eslint-disable-next-line no-inner-declarations
+       function triParTitre(a, b) {
+                if (a.title < b.title) {
+                    return (-1);
+                }
+                if (a.title > b.title) {
+                    return (1);
+                }
+                return (0);
+            }
+        
+        
+                mediasSorteds = mediasOfPhotographers.sort(triParTitre);
+                displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
+        }
+        
+
+
+        if(value == "date") {
+
+            // eslint-disable-next-line no-inner-declarations
+            function triParDate(a, b) {
+                if (a.date < b.date) {
+                    return (-1);
+                }
+                if (a.date > b.date) {
+                    return (1);
+                }
+                return (0);
+            }
+        
+        
+                mediasSorteds=  mediasOfPhotographers.sort(triParDate);
+                displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
+            
+        }
+
+        if(value == "likes") {
+
+            // eslint-disable-next-line no-inner-declarations
+            function triParLikes(a, b) {
+                if (a.likes < b.likes) {
+                    return (-1);
+                }
+                if (a.likes > b.likes) {
+                    return (1);
+                }
+                return (0);
+            }
+        
+        
+                mediasSorteds= mediasOfPhotographers.sort(triParLikes);
+                displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
+            
+        }
+            
+    }
 
 async function init() {
     // Récupère les datas du photographe

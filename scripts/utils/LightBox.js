@@ -48,11 +48,11 @@ async function getData() {
 
 // Permet de rajouter un listener au document.
 getData()
-    .then(result => {
+    .then(() => {
             document.querySelectorAll("#content").forEach(categoryDOM => {
             categoryDOM.addEventListener("click", (e) => {
                 this.focus();
-                this.manageEvent(e.currentTarget.dataset.id);
+                manageEvent(e.currentTarget.dataset.id);
             });
         });
     });
@@ -65,7 +65,6 @@ function display() {
 // Fonction qui permet de définir la lightBox
 async function displayMedia() {
     const onePhotographer = await getDataPhotographers();
-    // currentIndex = this.getelementById(this.id);
     lightBoxMedias = mediasOfLightbox[currentIndex];
 
     // titre
@@ -85,37 +84,49 @@ async function displayMedia() {
     const vid = `assets/media/${name}/${video}`;
 
     const getLightBox = () => {
+        const d= document.createElement("div");
+        d.className= "lightBox-image";
+
         if (video !== undefined) {
-            return `
-            <div class="lightbox-image">
-            <video src="${vid}" type="video/mp4" controls aria-label="${titre}" tabindex="8"></video>
-            <div class="title-lightbox">${titre}</div>
-            </div>
-            `;
+            const v= document.createElement("video");
+            v.src= vid;
+            v.type= "video/mp4";
+            v.setAttribute("controls","controls");
+            v.ariaLabel= titre;
+            v.tabIndex= "8";
+            d.appendChild(v);
         }
+           
         else {
-            return `
-            <div class="lightbox-image">
-            <img src="${img}" alt="Photo de ${name}" aria-label="${titre}" tabindex="8">
-            <div class="title-lightbox">${titre}</div>
-            </div>
-            `;
+            const i= document.createElement("img");
+            i.src= img;
+            i.alt= `Photo de ${name}`;
+            i.ariaLabel= titre;
+            i.tabIndex= "8";
+            d.appendChild(i);
+            
         }
+        const t= document.createElement("div");
+        t.className= "title-lightbox";
+        t.innerText= titre;
+        d.appendChild(t);
+        return d;
     };
    
 
-    const lighboxDOM = getLightBox();
+  
 
     // j'insere le bloc html image ou vidéo dans la div de la lightbox
     lightboxcontainer = document.getElementById("content");
-    lightboxcontainer.innerHTML = lighboxDOM;
-   
+    lightboxcontainer.innerHTML= "";
+    lightboxcontainer.appendChild(getLightBox());
+       
     display();
   
 }
 
 //fonction pour afficher la prochaine photographie
-function next(element) {
+function next() {
     if (currentIndex === mediasOfLightbox.length - 1) {
         currentIndex = 0;
     }
@@ -128,7 +139,7 @@ function next(element) {
 
 
 //fonction pour afficher la précédente photographie
-function previous(element) {
+function previous() {
     if (currentIndex === 0) {
         currentIndex = mediasOfLightbox.length - 1;
     }
@@ -172,15 +183,15 @@ document.addEventListener("keyup", (e) => {
     }
     switch (e.key) {
         case "ArrowRight":
-            this.next();
+            next();
             break;
 
         case "ArrowLeft":
-            this.previous();
+            previous();
             break;
 
         case "Escape":
-            this.close();
+            close();
             break;
 
        
@@ -191,14 +202,10 @@ document.addEventListener("keyup", (e) => {
 document.addEventListener("keyup", (e) => {
     switch (e.key) {
     case "Enter":
-        const id= e.target.children[0].id.split("_")[1];
-        this.show(id);
+        
+        show(e.target.children[0].id.split("_")[1]);
         break;
     }
 });
 
-// cette fonction permet de retourner l'index courant.
-function getelementById(id) {
-    return currentIndex;
-}
 

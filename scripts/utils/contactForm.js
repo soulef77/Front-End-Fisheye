@@ -35,7 +35,7 @@ function closeModal() {
 document.addEventListener("keyup", (e) => {
         switch (e.key) {
         case "Escape":
-            this.closeModal();
+            closeModal();
             break;
     }
 });

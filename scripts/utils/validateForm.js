@@ -9,6 +9,8 @@ function validateForm() {
 
     if (name.value == "") {
         document.getElementById('errorname').innerHTML = "Veuillez entrez un prénom valide";
+        // var errorName= document.createElement('a');
+        // errorName.appendChild(document.createTextNode("Veuillez entrez un prénom valide"));
         name.focus();
         return false;
     } else {

@@ -139,6 +139,14 @@ function addordislike(id) {
 //Fonction qui permet de récupérer le nombre de likes dans le JSON
 let mediaPhotos;
 let mediaOfPhotographers;
+let idPhotographer;
+// Je récupere l'url
+let parsedUrl = new URL(window.location.href);
+// Je récupere uniquement l'id et je la transfere dans une variable 
+idPhotographer = parsedUrl.searchParams.get("id")
+
+// Je convertis l'id en nombre
+idPhotographer = Number(idPhotographer);
 function getLikesMedia(id) {
 
     // eslint-disable-next-line no-undef
@@ -146,7 +154,7 @@ function getLikesMedia(id) {
 
     // .find renvoie une array de tous les éléments filtrées par la condition. 
     // On sait qu'il y a un seul média pour cet id donc on récupère le premier : [0]
-    mediaOfPhotographers = mediaPhotos.find(media => (media.id == id) && (media.photographerId == idPhotograph));
+    mediaOfPhotographers = mediaPhotos.find(media => (media.id == id) && (media.photographerId == idPhotographer));
     let nbreLikes = mediaOfPhotographers.likes;
     // console.log("nombre de likes ", nbreLikes);
     return nbreLikes;
@@ -221,70 +229,6 @@ window.onclick = function (event) {
     }
 }
 
-let mediasSorteds = [];
-
-   function triBy(value) {
-    
-        if(value == "title") {
-
-         
-       // eslint-disable-next-line no-inner-declarations
-       function triParTitre(a, b) {
-                if (a.title < b.title) {
-                    return (-1);
-                }
-                if (a.title > b.title) {
-                    return (1);
-                }
-                return (0);
-            }
-        
-        
-                mediasSorteds = mediasOfPhotographers.sort(triParTitre);
-                displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
-        }
-        
-
-
-        if(value == "date") {
-
-            // eslint-disable-next-line no-inner-declarations
-            function triParDate(a, b) {
-                if (a.date < b.date) {
-                    return (-1);
-                }
-                if (a.date > b.date) {
-                    return (1);
-                }
-                return (0);
-            }
-        
-        
-                mediasSorteds=  mediasOfPhotographers.sort(triParDate);
-                displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
-            
-        }
-
-        if(value == "likes") {
-
-            // eslint-disable-next-line no-inner-declarations
-            function triParLikes(a, b) {
-                if (a.likes < b.likes) {
-                    return (-1);
-                }
-                if (a.likes > b.likes) {
-                    return (1);
-                }
-                return (0);
-            }
-        
-        
-                mediasSorteds= mediasOfPhotographers.sort(triParLikes);
-                displayMediaOnePhotographer(mediasOfPhotographers, unPhotographer);
-            
-        }
-            
-    }
 
 
 
