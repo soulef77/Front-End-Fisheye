@@ -1,5 +1,6 @@
 //Code JavaScript lié à la page photographer.html
 
+import{ photographerFactorySingle, photographerFactoryMediaSingle, Encart} from "/scripts/pages/photographers.js";
 
 let idPhotograph;
 // Je récupere l'url
@@ -107,8 +108,10 @@ async function displayDataEncart(photographers) {
 }
 
 
+// eslint-disable-next-line no-unused-vars
 let mediasSorteds = [];
 
+   // eslint-disable-next-line no-unused-vars
    function triBy(value) {
     
         if(value == "title") {

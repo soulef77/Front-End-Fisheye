@@ -1,8 +1,10 @@
 
 // // Je récupere la lightbox pour y inserer l'image
 
-let lightboxcontainer;
+import{ getPhotographeImage, getDataPhotographers, mediasSorteds} from "/scripts/pages/photographers.js";
 
+
+let lightboxcontainer;
 let currentIndex;
 let lightBoxMedias;
 let mediasOfLightbox = [];
