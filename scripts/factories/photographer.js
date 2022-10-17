@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 // Cette fonction permet de définir la page d'accueil avec la photo du photographe et ses informartions.
-function photographerFactory(data) {
+export function photographerFactory(data) {
     const { name, id, portrait, city, country, tagline, price } = data;
 
     const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
@@ -228,6 +228,8 @@ window.onclick = function (event) {
         }
     }
 }
+
+
 
 
 
