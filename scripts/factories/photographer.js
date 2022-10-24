@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 
 // Cette fonction permet de définir la page d'accueil avec la photo du photographe et ses informartions.
-export function photographerFactory(data) {
+ function photographerFactory(data) {
     const { name, id, portrait, city, country, tagline, price } = data;
-
     const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
+
     // Fonction de la création des cartes des photographes
     const getUserCardDOM = () => `
  <article>

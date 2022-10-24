@@ -1,7 +1,7 @@
 
 // // Je récupere la lightbox pour y inserer l'image
 
-import{ getPhotographeImage, getDataPhotographers, mediasSorteds} from "/scripts/pages/photographers.js";
+// import{ getPhotographeImage, getDataPhotographers, mediasSorteds} from "/scripts/pages/photographers.js";
 
 
 let lightboxcontainer;
@@ -195,8 +195,7 @@ document.addEventListener("keyup", (e) => {
         case "Escape":
             close();
             break;
-
-       
+   
     }
 });
 

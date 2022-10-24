@@ -29,15 +29,22 @@
     <div class="label">
       <h2>Trier par</h2>
     </div>
-    <div class="dropdown"  >
-      <select name="sortby" class="dropbtn" id="sort-page" onchange="triBy(value)" tabindex="10">
-        <option class="option" disabled selected hidden>Selectionner</option>
-        <option class="option" value="likes" tabindex="11" aria-selected="true" aria-label="trier par popularité">Popularite</option>
-        <option class="option" value="date" tabindex="12"  aria-selected="true" aria-label="trier par date">Date</option>
-        <option class="option" value="title" tabindex="13"  aria-selected="true" aria-label="trier par titre">Titre</option>
-      </select>
-    </div>
+    <div class1="dropdown"  >
 
+			<div id="listDropDown" class="dropdown">
+				<div class="dropdown-text" id="listDisplay">Sélectionner</div>
+				<img id="listIcon" src="assets/icons/arrow_white.gif" width="23" height="23" onclick="toggleList()" tabindex="13">
+			</div>
+
+			<select id="list" class="dropdown-list" size="2" style="display: none;" onclick="setOption(this)" tabindex="13">
+				<option class="listOption" value="Popularité" selected>Popularité</option>
+				<option class="listOption" value="Date">Date</option>
+				<option class="listOption" value="Titre">Titre</option>
+			</select>
+
+		</div>
+
+    
     <div class="media_section">
     <!-- ici s'affichent les cartes des photographes -->
     </div>

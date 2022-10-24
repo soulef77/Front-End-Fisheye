@@ -1,6 +1,6 @@
 //Code JavaScript lié à la page photographer.html
 
-import{ photographerFactorySingle, photographerFactoryMediaSingle, Encart} from "/scripts/pages/photographers.js";
+// import{ photographerFactorySingle, photographerFactoryMediaSingle, Encart} from "/scripts/pages/photographers.js";
 
 let idPhotograph;
 // Je récupere l'url
@@ -114,7 +114,7 @@ let mediasSorteds = [];
    // eslint-disable-next-line no-unused-vars
    function triBy(value) {
     
-        if(value == "title") {
+        if(value == "Titre") {
 
          
        // eslint-disable-next-line no-inner-declarations
@@ -135,7 +135,7 @@ let mediasSorteds = [];
         
 
 
-        if(value == "date") {
+        if(value == "Date") {
 
             // eslint-disable-next-line no-inner-declarations
             function triParDate(a, b) {
@@ -154,14 +154,14 @@ let mediasSorteds = [];
             
         }
 
-        if(value == "likes") {
+        if(value == "Popularité") {
 
             // eslint-disable-next-line no-inner-declarations
             function triParLikes(a, b) {
-                if (a.likes < b.likes) {
+                if (a.likes > b.likes) {
                     return (-1);
                 }
-                if (a.likes > b.likes) {
+                if (a.likes < b.likes) {
                     return (1);
                 }
                 return (0);
@@ -175,6 +175,66 @@ let mediasSorteds = [];
             
     }
 
+
+    
+
+function toggleList()
+{
+	const list = document.getElementById("list");
+	const listIcon = document.getElementById("listIcon");
+	const listDropDown = document.getElementById("listDropDown");
+
+	if(list.style.display == "none")
+	{
+		list.style.display = "";
+		listIcon.classList.add("dropbtn-flip");
+		listDropDown.classList.add("dropdown-open");
+	}
+	else
+	{
+		list.style.display = "none";
+		listIcon.classList.remove("dropbtn-flip");
+		listDropDown.classList.remove("dropdown-open");
+	}
+}
+
+const listOptions = ["Popularité", "Date", "Titre"];
+
+function setOption(list)
+{
+	const value = list.value;
+	document.getElementById("listDisplay").innerText = value;
+
+	// vider la liste d'options
+	while(list.options.length > 0)
+	{
+		list.options[0].remove();
+	}
+
+	// mettre les deux autres options dans la liste
+	listOptions.forEach(option =>
+		{
+			if(option != value)
+			{
+				const _option = new Option(option, option);
+				_option.className = "listOption";
+				list.options.add(_option);
+			}
+		});
+
+	const listIcon = document.getElementById("listIcon");
+	const listDropDown = document.getElementById("listDropDown");
+
+	list.style.display = "none";
+	listIcon.classList.remove("dropbtn-flip");
+	listDropDown.classList.remove("dropdown-open");
+
+	triBy(value);
+
+	listIcon.focus();
+
+}
+
 async function init() {
     // Récupère les datas du photographe
     unPhotographer = await getDataPhotographers();
@@ -182,6 +242,7 @@ async function init() {
     let mediasOfPhotographer = await getPhotographeImage();
     displayMediaOnePhotographer(mediasOfPhotographer, unPhotographer);
     displayDataEncart(mediasOfPhotographer);
+    setOption(document.getElementById("list"));
 
 }
 

@@ -1,4 +1,4 @@
-import  { photographerFactory } from './scripts/pages/photographers.js';
+// import  { photographerFactory } from './scripts/pages/photographers.js';
 
 // Cette fonction permet de récupérer les données JSON des photographes. 
 async function getPhotographers() {
@@ -9,7 +9,7 @@ async function getPhotographers() {
     // lire le corps de réponse et analyser en JSON
      let photographers = await response.json(); 
 
-     return photographers
+     return photographers;
   
 }
 
