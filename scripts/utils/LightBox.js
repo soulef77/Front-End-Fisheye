@@ -198,15 +198,22 @@ document.addEventListener("keyup", (e) => {
    
     }
 });
-
 // Pour écouter le document lorsqu'on clique sur la touche entrée.
 document.addEventListener("keyup", (e) => {
     switch (e.key) {
     case "Enter":
-        
-        show(e.target.children[0].id.split("_")[1]);
-        break;
+          if(["list", "listIcon"].indexOf(e.target.id) >= 0)
+          {
+              e.target.click();
+              return;
+          }
+      else
+          {
+              show(e.target.children[0].id.split("_")[1]);
+          }
+      break;
     }
-});
-
+  });
+  
+  
 

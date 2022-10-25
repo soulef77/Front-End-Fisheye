@@ -29,22 +29,17 @@
     <div class="label">
       <h2>Trier par</h2>
     </div>
-    <div class1="dropdown"  >
-
-			<div id="listDropDown" class="dropdown">
+ 			<div id="listDropDown" class="dropdown">
 				<div class="dropdown-text" id="listDisplay">Sélectionner</div>
-				<img id="listIcon" src="assets/icons/arrow_white.gif" width="23" height="23" onclick="toggleList()" tabindex="13">
+				<img id="listIcon" src="assets/icons/arrow_white.gif" alt="flèche" width="23" height="23" onclick="toggleList()" tabindex="11">
 			</div>
 
-			<select id="list" class="dropdown-list" size="2" style="display: none;" onclick="setOption(this)" tabindex="13">
-				<option class="listOption" value="Popularité" selected>Popularité</option>
-				<option class="listOption" value="Date">Date</option>
-				<option class="listOption" value="Titre">Titre</option>
+			<select id="list" class="dropdown-list" size="2" style="display: none;" onclick="setOption(this)" tabindex="11">
+				<option class="listOption" value="Popularité" selected tabindex="11">Popularité</option>
+				<option class="listOption" value="Date" tabindex="12" >Date</option>
+				<option class="listOption" value="Titre" tabindex="13">Titre</option>
 			</select>
-
-		</div>
-
-    
+   
     <div class="media_section">
     <!-- ici s'affichent les cartes des photographes -->
     </div>
